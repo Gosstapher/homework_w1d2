@@ -61,5 +61,17 @@ def sphere_volume(radius)
 end
 
 def cylinder_volume(height, radius)
-  Math::PI * 
+  Math::PI * (radius ** 2) * height
 end
+
+def rectangular_prisim_volume(height, width, length)
+  height * width * length
+end
+
+def cone_volume(height, radius)
+  (Math::PI * radius ** 2 * (height / 3))
+end
+
+
+
+

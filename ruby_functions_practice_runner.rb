@@ -67,10 +67,46 @@ puts "If a sphere has the radius of #{sphere_radius} then then volume is #{spher
 ####Can you extend this to calculate other shapes' volumes? (Cylinder, Rectangular Prism, Cone, Capsule)
 cylinder_height = 25
 cylinder_radius = 5
-cylinder_volume_answer = cylinder_volume (cylinder_height, cylinder_radius)
+cylinder_volume_answer = cylinder_volume(cylinder_height, cylinder_radius)
 puts "If a Cylinder has a height of #{cylinder_height} and a radius of #{cylinder_radius} it has a volume of #{cylinder_volume_answer}"
+
+rectangular_prism_height = 20
+rectangular_prisim_width = 18
+rectangular_prisim_length = 12
+rectangular_prisim_volume_answer = rectangular_prisim_volume(rectangular_prism_height, rectangular_prisim_width, rectangular_prisim_length)
+puts "If a Rectangular Prism has a height of #{rectangular_prism_height}, a width of #{rectangular_prisim_width} and a length of #{rectangular_prisim_length} it will have a volume of #{rectangular_prisim_volume_answer}"
+
+# cone_height = 17
+# cone_radius = 11
+# cone_volume_answer = cone_volume(cone_height, cone_radius)
+# puts "If a cone has a height of #{cone_height} and a radius of #{cone_radius} it will have a volume of #{cone_volume_answer}"
 ####http://ruby-doc.org/stdlib-2.1.1/libdoc/date/rdoc/Date.html
 ####Days until christmas, Calculate how many nights there are from today until Christmas morning.
+
+require 'date'
+  def days_until_xmas(date=DateTime.now)
+    xmas = DateTime.new(date.year, 12, 25)
+    xmas = DateTime.new(date.year+1, 12, 25) if date > xmas
+    difference = (xmas-date).to_i
+    if difference == 0
+      puts "Merry Christmas! Ho Ho Ho!"
+    else
+      puts "Only #{difference} shopping day#{"s" unless difference==1} until Christmas. Hurry up, you need to buy more presents!"
+    end
+  end
+
+puts "If it is Christmas Eve"
+  days_until_xmas(DateTime.new(2015, 12, 24))
+  # Only 1 day until Xmas.
+puts "If it is Christmas Day"
+  days_until_xmas(DateTime.new(2015, 12, 25))
+  # Today is Xmas.
+puts "If it is Boxing Day"
+  days_until_xmas(DateTime.new(2015, 12, 26))
+  # Only 364 days until Xmas.
+puts "How many days left until Christmas based on today's date"
+  days_until_xmas
+  # Updated days until Xmas based on today's date.
 
 ####Given a date of birth, calculate how old a person born on that date would be
 
